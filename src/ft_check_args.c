@@ -1,6 +1,6 @@
 #include "../include/push_swap.h"
 
-void    alpha_checker(char **argv)
+void    alpha_check(char **argv)
 {
     int i;
     int j;
