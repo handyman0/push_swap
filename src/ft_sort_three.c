@@ -1,22 +1,24 @@
 #include "../include/push_swap.h"
 
-/* função que ordena se foram passados 3 argumentos */
+/* função que ordena se foram passados 3 elementos na pilha */
 void    ft_sort_three(t_stack **stack_a)
 {
-	if (first > second && second < third && first < third)
-		sa(stack_a);
-	else if (first > second && second > third && first > third)
+	if (ft_min(*stack_a) == (*stack_a)->nbr)
 	{
-		sa(stack_a);
-		rra(stack_a);
+		ft_rra(stack_a, 0);
+		ft_sa(stack_a, 0);
 	}
-	else if (first > second && second < third && first > third)
-		ra(stack_a);
-	else if (first < second && second > third && first < third)
+	else if (ft_max(*stack_a) == (*stack_a)->nbr)
 	{
-		sa(stack_a);
-		ra(stack_a);
+		ft_ra(stack_a, 0);
+		if (!ft_checksorted(*stack_a))
+			ft_sa(stack_a, 0);
 	}
-	else if (first < second && second > third && first > third)
-		rra(stack_a);
+	else
+	{
+		if (ft_find_index(*stack_a, ft_max(*stack_a)) == 1)
+			ft_rra(stack_a, 0);
+		else
+			ft_sa(stack_a, 0);
+	}
 }
