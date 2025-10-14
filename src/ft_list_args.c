@@ -9,7 +9,7 @@
 	argumento sem juntar nas listas
 	nos juntamos em ft_add_back
 */
-int ft_list_args(char **argv, t_stack **stack_a)
+void    list_args(char **argv, t_stack **stack_a)
 {
 	long	i;
 
