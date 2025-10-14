@@ -40,7 +40,7 @@ int		ft_find_index(t_stack *a, int nbr);
 int		ft_find_place_a(t_stack *a, int nbr);
 int		ft_find_place_b(t_stack *stack_b, int nbr_push);
 void	ft_sort(t_stack **stack_a);
-int		ft_checksorted(t_stack *stack_a);
+int		ft_checks_sorted(t_stack *stack_a);
 void	ft_sort_three(t_stack **stack_a);
 t_stack	*ft_parse(int argc, char **argv);
 t_stack	*ft_parse_args_quoted(char **argv);
