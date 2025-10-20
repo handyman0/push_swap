@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lmelo-do <lmelo-do@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: lfms <lfms@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 12:27:17 by lmelo-do          #+#    #+#             */
-/*   Updated: 2025/09/01 10:56:51 by lmelo-do         ###   ########.fr       */
+/*   Updated: 2025/10/18 19:14:13 by lfms             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,17 @@ static char	*ft_read(int fd, char *stash)
 		stash = ft_calloc(sizeof(char), 1);
 	buffer = ft_calloc(sizeof(char), BUFFER_SIZE + 1);
 	if (!stash || !buffer)
-		return (ft_free(stash, buffer));
+		return (ft_freee(stash, buffer));
 	bytes_read = 1;
 	while (!ft_strchr(stash, '\n') && bytes_read > 0)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read == -1)
-			return (ft_free(stash, buffer));
+			return (ft_freee(stash, buffer));
 		buffer[bytes_read] = '\0';
 		temp = ft_strjoin(stash, buffer);
 		if (!temp)
-			return (ft_free(temp, buffer));
+			return (ft_freee(temp, buffer));
 		free(stash);
 		stash = temp;
 	}
@@ -78,10 +78,10 @@ static char	*ft_trim_stash(char *stash)
 	if (stash[i] == '\n')
 		i++;
 	if (!stash[i])
-		return (ft_free(stash, NULL));
+		return (ft_freee(stash, NULL));
 	new_stash = malloc((ft_strlen(stash) - i + 1) * sizeof(char));
 	if (!new_stash)
-		return (ft_free(stash, NULL));
+		return (ft_freee(stash, NULL));
 	j = 0;
 	while (stash[i])
 		new_stash[j++] = stash[i++];
