@@ -21,7 +21,7 @@ void	ft_rr(t_stack **a, t_stack **b, int j)
 		write(1, "rr\n", 3);
 }
 
-void	ft_rrr_sub(t_stack **b, int j)
+static void	ft_rrr_sub(t_stack **b, int j)
 {
 	t_stack	*tmp;
 	int		i;

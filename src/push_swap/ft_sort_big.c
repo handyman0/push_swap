@@ -2,7 +2,7 @@
 
 /*	Essa função classifica e empurra pilhas até que
 	restem 3 elementos na pilha A */
-void	ft_sort_b_till_3(t_stack **stack_a, t_stack **stack_b)
+static void	ft_sort_b_till_3(t_stack **stack_a, t_stack **stack_b)
 {
 	int		i;
 	t_stack	*tmp;
@@ -32,7 +32,7 @@ void	ft_sort_b_till_3(t_stack **stack_a, t_stack **stack_b)
 	Quando restam três elementos, ela chama a função ft_sort_three
 	para ordenar os elementos restantes na pilha_a.
 */
-t_stack	*ft_sort_b(t_stack **stack_a)
+static t_stack	*ft_sort_b(t_stack **stack_a)
 {
 	t_stack	*stack_b;
 
@@ -48,7 +48,7 @@ t_stack	*ft_sort_b(t_stack **stack_a)
 	return (stack_b);
 }
 
-t_stack	**ft_sort_a(t_stack **stack_a, t_stack **stack_b)
+static t_stack	**ft_sort_a(t_stack **stack_a, t_stack **stack_b)
 {
 	int		i;
 	t_stack	*tmp;

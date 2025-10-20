@@ -1,6 +1,6 @@
 #include "../../include/push_swap.h"
 
-void	ft_check_sub(t_stack **a, t_stack **b, char *line)
+static void	ft_check_sub(t_stack **a, t_stack **b, const char *line)
 {
 	if (line[2] == 'a')
 		ft_rra(a, 1);
@@ -12,7 +12,7 @@ void	ft_check_sub(t_stack **a, t_stack **b, char *line)
 
 // Essa função lê as linhas e verifica se o comando é válido.
 // Se for válido, executa o comando na pilha correspondente.
-char	*ft_check(t_stack **a, t_stack **b, char *line)
+static char	*ft_check(t_stack **a, t_stack **b, char *line)
 {
 	if (line[0] == 's' && line[1] == 'a' && line[2] == '\n')
 		ft_sa(a, 1);
@@ -40,7 +40,7 @@ char	*ft_check(t_stack **a, t_stack **b, char *line)
 // Essa função checa a validade dos comandos e das pilhas.
 // Se for valido, e a pilha A estiver ordenada, o programa escreve "OK".
 // Se a pilha A não estiver ordenada, escreve "KO".
-void	ft_checker_sub(t_stack **a, t_stack **b, char *line)
+static void	ft_checker_sub(t_stack **a, t_stack **b, char *line)
 {
 	char	*tmp;
 

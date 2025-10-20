@@ -24,7 +24,7 @@ int	ft_find_index(t_stack *a, int nbr)
 int	ft_find_place_b(t_stack *stack_b, int nbr_push)
 {
 	int		i;
-	t_stack	*tmp;
+	const t_stack	*tmp;
 
 	i = 1;
 	if (nbr_push > stack_b->nbr && nbr_push < ft_lstlast(stack_b)->nbr)

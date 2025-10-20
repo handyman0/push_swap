@@ -1,6 +1,6 @@
 #include "../../include/push_swap.h"
 
-static int	ft_isnumber(char *str)
+static int	ft_isnumber(const char *str)
 {
 	int	i;
 
@@ -18,7 +18,7 @@ static int	ft_isnumber(char *str)
 	return (1);
 }
 
-int	ft_atoi2(const char *str)
+static int	ft_atoi2(const char *str)
 {
 	int				mod;
 	long long int	i;
@@ -55,7 +55,7 @@ int	ft_atoi2(const char *str)
 		por ordem ele coloca um identificador em cada numero
 	3 - separa cada um identificando como um inteiro
 */
-t_stack *ft_sub_process(char **argv)
+static t_stack *ft_sub_process(char **argv)
 {
 	t_stack	*a;
 	char	**tmp;
@@ -70,10 +70,7 @@ t_stack *ft_sub_process(char **argv)
 	while (tmp[i])
 	{
 		if (!ft_isnumber(tmp[i]))
-		{
-			ft_free_str_array(tmp);
 			ft_exit_error(&a, NULL, NULL);
-		}
 		j = ft_atoi2(tmp[i]);
 		ft_add_back(&a, ft_stack_new(j));
 		i++;
