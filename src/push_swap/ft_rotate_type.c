@@ -6,8 +6,8 @@
    essa função sera utilizada durante do push de B para A */
 int	ft_rotate_type_ba(t_stack *a, t_stack *b)
 {
-	int i;
-	t_stack *tmp;
+	int		i;
+	t_stack	*tmp;
 
 	tmp = b;
 	i = ft_case_rrarrb_a(a, b, b->nbr);
@@ -32,8 +32,8 @@ int	ft_rotate_type_ba(t_stack *a, t_stack *b)
    essa função sera utilizada durante do push de A para B. */
 int	ft_rotate_type_ab(t_stack *a, t_stack *b)
 {
-	int	i;
-	t_stack *tmp;
+	int		i;
+	t_stack	*tmp;
 
 	tmp = a;
 	i = ft_case_rrarrb(a, b, a->nbr);

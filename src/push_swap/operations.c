@@ -4,13 +4,14 @@
 	o primeiro elemento vira o ultimo */
 void	ft_ra(t_stack **a, int j)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	if (!*a || !(*a)->next)
 		return ;
 	tmp = *a;
 	*a = ft_lstlast(*a);
 	(*a)->next = tmp;
+	*a = tmp->next;
 	tmp->next = NULL;
 	if (j == 0)
 		write(1, "ra\n", 3);
@@ -19,9 +20,9 @@ void	ft_ra(t_stack **a, int j)
 	não faz nada se for 1 ou nenhum elemento */
 void	ft_sa(t_stack **a, int j)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
-	if (!*a || !(*a)->next)
+	if (!*a || !((*a)->next))
 		return ;
 	tmp = *a;
 	*a = (*a)->next;
@@ -34,9 +35,9 @@ void	ft_sa(t_stack **a, int j)
 	e coloca no topo da pilha a, não faz nada se não tiver elemento na pilha b*/
 void	ft_pa(t_stack **a, t_stack **b, int j)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
-	if (!b)
+	if (!*b)
 		return ;
 	tmp = *a;
 	*a = *b;
@@ -49,8 +50,8 @@ void	ft_pa(t_stack **a, t_stack **b, int j)
 	o ultimo elemento torna-se o primeiro*/
 void	ft_rra(t_stack **a, int j)
 {
-	t_stack *tmp;
-	int	i;
+	t_stack	*tmp;
+	int		i;
 
 	if (!*a || !(*a)->next)
 		return ;
@@ -74,7 +75,7 @@ void	ft_rra(t_stack **a, int j)
 /*  ss - sa e sb ao mesmo tempo */
 void	ft_ss(t_stack **a, t_stack **b, int j)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	if (!*a || !((*a)->next) || !*b || !((*b)->next))
 		return ;

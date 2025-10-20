@@ -1,7 +1,7 @@
 #include "../../include/push_swap.h"
 
 // Checa se o caracter é negativo
-static int	sign(int c)
+int	sign(int c)
 {
 	if (c == '+' || c == '-')
 		return (1);
@@ -9,7 +9,7 @@ static int	sign(int c)
 }
 
 // checa se o caracter é um digito
-static int	digit(int c)
+int	digit(int c)
 {
 	if ((c >= 48) && (c <= 57))
 		return (1);
@@ -17,7 +17,7 @@ static int	digit(int c)
 }
 
 // checa se o caracter é um espaço
-static int	space(int c)
+int	space(int c)
 {
 	if (c == 32)
 		return (1);
@@ -30,7 +30,7 @@ int	check_error(char **argv, int i, int j)
 	while (argv[i])
 	{
 		j = 0;
-		while (argv[i][j] != '\0')
+		while ((argv[i][j] != '\0'))
 		{
 			if (sign(argv[i][j]))
 			{

@@ -2,7 +2,7 @@
 
 /*  Essa função faz a rotação da pilha "a" e da pilha "b".
 	na mesma diração e na quantidade necessária. */
-void	ft_apply_rarb(t_stack **a, t_stack **b, int c, char s)
+int	ft_apply_rarb(t_stack **a, t_stack **b, int c, char s)
 {
 	if (s == 'a')
 	{
@@ -16,11 +16,11 @@ void	ft_apply_rarb(t_stack **a, t_stack **b, int c, char s)
 	}
 	else
 	{
-		while ((*b)->nbr != c && ft_find_place_b(*a, c) > 0)
+		while ((*b)->nbr != c && ft_find_place_a(*a, c) > 0)
 			ft_rr(a, b, 0);
 		while ((*b)->nbr != c)
 			ft_rb(b, 0);
-		while (ft_find_place_b(*a, c) > 0)
+		while (ft_find_place_a(*a, c) > 0)
 			ft_ra(a, 0);
 		ft_pa(a, b, 0);
 	}
@@ -29,7 +29,7 @@ void	ft_apply_rarb(t_stack **a, t_stack **b, int c, char s)
 
 /*  Essa função faz a rotação reversa da pilha "a" e da pilha "b".
 	na mesma diração e na quantidade necessária. */
-void	ft_apply_rrarrb(t_stack **a, t_stack **b, int c, char s)
+int	ft_apply_rrarrb(t_stack **a, t_stack **b, int c, char s)
 {
 	if (s == 'a')
 	{
@@ -43,11 +43,11 @@ void	ft_apply_rrarrb(t_stack **a, t_stack **b, int c, char s)
 	}
 	else
 	{
-		while ((*b)->nbr != c && ft_find_place_b(*a, c) > 0)
+		while ((*b)->nbr != c && ft_find_place_a(*a, c) > 0)
 			ft_rrr(a, b, 0);
 		while ((*b)->nbr != c)
 			ft_rrb(b, 0);
-		while (ft_find_place_b(*a, c) > 0)
+		while (ft_find_place_a(*a, c) > 0)
 			ft_rra(a, 0);
 		ft_pa(a, b, 0);
 	}
@@ -56,7 +56,7 @@ void	ft_apply_rrarrb(t_stack **a, t_stack **b, int c, char s)
 
 /*  Essa função faz a rotação inversa da pilha "a".
 	com a pilha "b" direção contraria e na quantidade necessária. */
-void	ft_apply_rrarb(t_stack **a, t_stack **b, int c, char s)
+int	ft_apply_rrarb(t_stack **a, t_stack **b, int c, char s)
 {
 	if (s == 'a')
 	{
@@ -68,7 +68,7 @@ void	ft_apply_rrarb(t_stack **a, t_stack **b, int c, char s)
 	}
 	else
 	{
-		while (ft_find_place_b(*a, c) > 0)
+		while (ft_find_place_a(*a, c) > 0)
 			ft_rra(a, 0);
 		while ((*b)->nbr != c)
 			ft_rb(b, 0);
@@ -79,7 +79,7 @@ void	ft_apply_rrarb(t_stack **a, t_stack **b, int c, char s)
 
 /*  Essa função faz a rotação inversa da pilha "b".
 	com a pilha "a" direção contraria e na quantidade necessária. */
-void	ft_apply_rarrb(t_stack **a, t_stack **b, int c, char s)
+int	ft_apply_rarrb(t_stack **a, t_stack **b, int c, char s)
 {
 	if (s == 'a')
 	{
@@ -91,7 +91,7 @@ void	ft_apply_rarrb(t_stack **a, t_stack **b, int c, char s)
 	}
 	else
 	{
-		while (ft_find_place_b(*a, c) > 0)
+		while (ft_find_place_a(*a, c) > 0)
 			ft_ra(a, 0);
 		while ((*b)->nbr != c)
 			ft_rrb(b, 0);

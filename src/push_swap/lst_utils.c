@@ -1,7 +1,9 @@
 #include "../../include/push_swap.h"
 
-// Essa função retorna o ultimo elemento de uma pilha
-t_stack *ft_lstlast(t_stack *lst)
+/**
+ * Retorna o último elemento de uma pilha encadeada.
+ */
+t_stack	*ft_lstlast(t_stack *lst)
 {
 	if (!lst)
 		return (NULL);
@@ -10,10 +12,12 @@ t_stack *ft_lstlast(t_stack *lst)
 	return (lst);
 }
 
-// Essa função retorna o tamanho da pilha
-int	ft_lstsize(t_stack *lst)
+/**
+ * Retorna o tamanho (número de elementos) da pilha.
+ */
+int		ft_lstsize(t_stack *lst)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (lst)
@@ -24,10 +28,12 @@ int	ft_lstsize(t_stack *lst)
 	return (i);
 }
 
-// Essa função procura e retorna o menor valor da pilha
+/**
+ * Retorna o menor valor presente na pilha.
+ */
 int	ft_min(t_stack *a)
 {
-	int	i;
+	int		i;
 
 	i = a->nbr;
 	while (a)
@@ -39,10 +45,12 @@ int	ft_min(t_stack *a)
 	return (i);
 }
 
-// Essa função procura e retorna o maior valor da pilha
+/**
+ * Retorna o maior valor presente na pilha.
+ */
 int	ft_max(t_stack *a)
 {
-	int	i;
+	int		i;
 
 	i = a->nbr;
 	while (a)

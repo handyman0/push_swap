@@ -1,10 +1,12 @@
 #include "../../include/push_swap.h"
 
 /* Essa função checa se a pilha está ordenada */
-int ft_checks_sorted(t_stack *stack_a)
+int	ft_checksorted(t_stack *stack_a)
 {
-	int i;
+	int	i;
 
+	if (!stack_a)
+		return (1);
 	i = stack_a->nbr;
 	while (stack_a)
 	{

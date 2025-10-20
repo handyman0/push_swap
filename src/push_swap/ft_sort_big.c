@@ -5,7 +5,7 @@
 void	ft_sort_b_till_3(t_stack **stack_a, t_stack **stack_b)
 {
 	int		i;
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	while (ft_lstsize(*stack_a) > 3 && !ft_checksorted(*stack_a))
 	{
@@ -34,7 +34,7 @@ void	ft_sort_b_till_3(t_stack **stack_a, t_stack **stack_b)
 */
 t_stack	*ft_sort_b(t_stack **stack_a)
 {
-	t_stack *stack_b;
+	t_stack	*stack_b;
 
 	stack_b = NULL;
 	if (ft_lstsize(*stack_a) > 3 && !ft_checksorted(*stack_a))
@@ -50,8 +50,8 @@ t_stack	*ft_sort_b(t_stack **stack_a)
 
 t_stack	**ft_sort_a(t_stack **stack_a, t_stack **stack_b)
 {
-	int	i;
-	t_stack *tmp;
+	int		i;
+	t_stack	*tmp;
 
 	while (*stack_b)
 	{

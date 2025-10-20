@@ -1,7 +1,7 @@
 #include "../../include/push_swap.h"
 
 // função que adiciona um novo nó na pilha por trás
-void    ft_add_back(t_stack **stack, t_stack *stack_new)
+void	ft_add_back(t_stack **stack, t_stack *stack_new)
 {
 	if (!stack)
 		return ;

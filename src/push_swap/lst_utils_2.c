@@ -1,28 +1,30 @@
 #include "../../include/push_swap.h"
 
-// Essa função confere o index da pilha na stack
-int ft_find_index(t_stack *a, int nbr)
+/* Confere o índice de um número na pilha.
+   Retorna -1 se o número não existir na pilha. */
+
+
+int	ft_find_index(t_stack *a, int nbr)
 {
-	int	i;
+	int		i;
 
 	i = 0;
-	while(a->nbr != nbr)
+	while (a->nbr != nbr)
 	{
 		i++;
 		a = a->next;
 	}
 	a->index = 0;
-	return (0);
+	return (i);
 }
 
-/*	Essa função encontra o local correto do número na pilha B,
-	em outras palavras, ele verifica qual numero de indice nbr_push
-	vai obter apos ser enviado para pilha_b.
-*/
-int ft_find_place_b(t_stack *stack_b, int nbr_push)
+/* Retorna a posição correta de nbr_push na pilha B */
+
+
+int	ft_find_place_b(t_stack *stack_b, int nbr_push)
 {
-	int	i;
-	t_stack *tmp;
+	int		i;
+	t_stack	*tmp;
 
 	i = 1;
 	if (nbr_push > stack_b->nbr && nbr_push < ft_lstlast(stack_b)->nbr)
@@ -42,24 +44,23 @@ int ft_find_place_b(t_stack *stack_b, int nbr_push)
 	return (i);
 }
 
-/*	Essa função encontra o local correto do número na pilha_b,
-	em outras palavras, ele verifica qual numero de indice nbr_push
-	vai obter apos ser enviado para pilha_b.
-*/
+/* Retorna a posição correta de nbr_push na pilha A */
+
+
 int	ft_find_place_a(t_stack *stack_a, int nbr_push)
 {
-	int	i;
-	t_stack *tmp;
+	int		i;
+	t_stack	*tmp;
 
 	i = 1;
-	if (nbr_push > stack_a->nbr && nbr_push < ft_lstlast(stack_a)->nbr)
+	if (nbr_push < stack_a->nbr && nbr_push > ft_lstlast(stack_a)->nbr)
 		i = 0;
 	else if (nbr_push > ft_max(stack_a) || nbr_push < ft_min(stack_a))
 		i = ft_find_index(stack_a, ft_min(stack_a));
 	else
 	{
 		tmp = stack_a->next;
-		while (stack_a->nbr < nbr_push || tmp->nbr > nbr_push)
+		while (stack_a->nbr > nbr_push || tmp->nbr < nbr_push)
 		{
 			stack_a = stack_a->next;
 			tmp = stack_a->next;

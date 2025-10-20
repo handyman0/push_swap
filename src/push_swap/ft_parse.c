@@ -10,11 +10,8 @@
 */
 t_stack *ft_parse(int argc, char **argv)
 {
-	t_stack *stack_a;
-	int i;
-	int j;
+	t_stack	*stack_a;
 
-	i = 1;
 	stack_a = NULL;
 	if (argc < 2)
 		ft_error();

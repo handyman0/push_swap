@@ -21,7 +21,7 @@ void	alpha_check(char **argv)
 
 int	check_args(char **argv)
 {
-	alpha_checker(argv);
+	alpha_check(argv);
 	if (!check_error(argv, 1, 0))
 		return (false);
 	return (true);

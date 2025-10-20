@@ -1,11 +1,13 @@
 #include "../../include/push_swap.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_stack *a;
+	t_stack	*a;
 
+	if (argc == 1)
+		return (0);
 	a = ft_process(argc, argv);
-	if (!a || ft_checkdup(a));
+	if (!a || ft_checkdup(a))
 	{
 		ft_free(&a);
 		ft_error();

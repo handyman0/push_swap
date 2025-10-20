@@ -1,7 +1,6 @@
 #include "../../include/push_swap.h"
 
-// Essa função é a segunda parte da função ft_check.
-static void	*ft_check_sub(t_stack **a, t_stack **b, char *line)
+void	ft_check_sub(t_stack **a, t_stack **b, char *line)
 {
 	if (line[2] == 'a')
 		ft_rra(a, 1);
@@ -13,23 +12,25 @@ static void	*ft_check_sub(t_stack **a, t_stack **b, char *line)
 
 // Essa função lê as linhas e verifica se o comando é válido.
 // Se for válido, executa o comando na pilha correspondente.
-static char	*ft_check(t_stack **a, t_stack **b, char *line)
+char	*ft_check(t_stack **a, t_stack **b, char *line)
 {
-	if (ft_strncmp(line, "sa\n", 3) == 0)
+	if (line[0] == 's' && line[1] == 'a' && line[2] == '\n')
 		ft_sa(a, 1);
-	else if (ft_strncmp(line, "sb\n", 3) == 0)
+	else if (line[0] == 's' && line[1] == 'b' && line[2] == '\n')
 		ft_sb(b, 1);
-	else if (ft_strncmp(line, "pa\n", 3) == 0)
+	else if (line[0] == 'p' && line[1] == 'a' && line[2] == '\n')
 		ft_pa(a, b, 1);
-	else if (ft_strncmp(line, "pb\n", 3) == 0)
+	else if (line[0] == 'p' && line[1] == 'b' && line[2] == '\n')
 		ft_pb(a, b, 1);
-	else if (ft_strncmp(line, "ra\n", 3) == 0)
+	else if (line[0] == 'r' && line[1] == 'a' && line[2] == '\n')
 		ft_ra(a, 1);
-	else if (ft_strncmp(line, "rb\n", 3) == 0)
+	else if (line[0] == 'r' && line[1] == 'b' && line[2] == '\n')
 		ft_rb(b, 1);
-	else if (ft_strncmp(line, "rr\n", 3) == 0)
+	else if (line[0] == 'r' && line[1] == 'r' && line[3] == '\n')
+		ft_check_sub(a, b, line);
+	else if (line[0] == 'r' && line[1] == 'r' && line[2] == '\n')
 		ft_rr(a, b, 1);
-	else if (ft_strncmp(line, "ss\n", 3) == 0)
+	else if (line[0] == 's' && line[1] == 's' && line[2] == '\n')
 		ft_ss(a, b, 1);
 	else
 		ft_error_ch();
@@ -39,7 +40,7 @@ static char	*ft_check(t_stack **a, t_stack **b, char *line)
 // Essa função checa a validade dos comandos e das pilhas.
 // Se for valido, e a pilha A estiver ordenada, o programa escreve "OK".
 // Se a pilha A não estiver ordenada, escreve "KO".
-static void	*ft_checker_sub(t_stack **a, t_stack **b, char *line)
+void	ft_checker_sub(t_stack **a, t_stack **b, char *line)
 {
 	char	*tmp;
 
@@ -51,7 +52,7 @@ static void	*ft_checker_sub(t_stack **a, t_stack **b, char *line)
 	}
 	if (*b)
 		write(1, "KO\n", 3);
-	else if (ft_checksorted(*a))
+	else if (!ft_checksorted(*a))
 		write(1, "KO\n", 3);
 	else
 		write(1, "OK\n", 3);
@@ -60,16 +61,19 @@ static void	*ft_checker_sub(t_stack **a, t_stack **b, char *line)
 
 int	main(int argc, char **argv)
 {
-	t_stack *a;
-	t_stack *b;
+	t_stack	*a;
+	t_stack	*b;
 	char	*line;
 
+	if (argc == 1)
+		return (0);
 	b = NULL;
 	a = ft_process(argc, argv);
 	if (!a || ft_checkdup(a))
 	{
-		ft_free(&a);
+		ft_free (&a);
 		ft_error_ch();
+		return (1);
 	}
 	line = get_next_line(0);
 	if (!line && !ft_checksorted(a))
