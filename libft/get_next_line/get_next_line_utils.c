@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lmelo-do <lmelo-do@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: lfms <lfms@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 21:14:11 by lmelo-do          #+#    #+#             */
-/*   Updated: 2025/09/01 10:45:41 by lmelo-do         ###   ########.fr       */
+/*   Updated: 2025/10/18 19:13:53 by lfms             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	*ft_calloc(size_t n, size_t size)
 	return (ptr);
 }
 
-void	*ft_free(void *ptr, void *ptr2)
+void	*ft_freee(void *ptr, void *ptr2)
 {
 	free(ptr);
 	free(ptr2);

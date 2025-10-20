@@ -1,75 +1,107 @@
+# **************************************************************************** #
+#                                   CONFIG                                     #
+# **************************************************************************** #
+
 NAME = push_swap
-CC = cc
-RM = rm -f
-FLAGS = -Wall -Wextra -Werror
-LIBFTDIR = libft/
-OBJ_DIR = obj/
 BONUS = checker
-SRC_DIR = src/
 
-SRC_1 = src/push_swap/push_swap.c \
+CC = cc
+CFLAGS = -g -Wall -Wextra -Werror -Wunused-function -fsanitize=address
+RM = rm -f
 
-SRC_2 = src/push_swap/algorithm.c \
-		src/push_swap/ft_add_back.c \
-		src/push_swap/ft_list_args.c \
-		src/push_swap/ft_stack_new.c \
-		src/push_swap/operations.c \
-		src/push_swap/ft_parse_args_quoted.c \
-		src/push_swap/ft_check_args.c \
-		src/push_swap/ft_utils2.c \
-		src/push_swap/push_swap.c \
-		src/push_swap/ft_check_dup.c \
-		src/push_swap/ft_parse.c \
-		src/push_swap/ft_utils.c \
-		src/push_swap/solver_utils_ab.c \
-		src/push_swap/ft_check_sorted.c \
-		src/push_swap/ft_rotate_and_push.c \
-		src/push_swap/lst_utils_2.c \
-		src/push_swap/solver_utils_ba.c \
-		src/push_swap/ft_check_utils.c \
-		src/push_swap/ft_rotate_type.c \
-		src/push_swap/lst_utils.c \
-		src/push_swap/utils.c \
-		src/push_swap/ft_error.c \
-		src/push_swap/ft_sort_big.c \
-		src/push_swap/operations2.c \
-		src/push_swap/operations3.c \
-		src/push_swap/ft_free.c \
-		src/push_swap/ft_sort_three.c
+LIBFTDIR = libft
+LIBFT = $(LIBFTDIR)/libft.a
+INCLUDES = -I include -I $(LIBFTDIR)/include
 
-BONUS_SRC = src/checker/checker.c \
-			src/checker/checker_utils.c
+SRC_DIR = src/push_swap
+BONUS_DIR = src/checker
 
-OBJ_1 = ${SRC_1:.c=.o}
-OBJ_2 = ${SRC_2:.c=.o}
+# **************************************************************************** #
+#                                   SOURCES                                    #
+# **************************************************************************** #
 
-BONUS_OBJ = ${BONUS_SRC:.c=.o}
+COMMON_FILES = \
+	ft_add_back.c \
+	ft_add_front.c \
+	ft_check_args.c \
+	ft_check_dup.c \
+	ft_check_sorted.c \
+	ft_check_utils.c \
+	ft_error.c \
+	ft_free.c \
+	ft_list_args.c \
+	ft_parse.c \
+	ft_parse_args_quoted.c \
+	ft_rotate_and_push.c \
+	ft_rotate_type.c \
+	ft_sort_big.c \
+	ft_sort_three.c \
+	ft_stack_new.c \
+	lst_utils.c \
+	lst_utils_2.c \
+	operations.c \
+	operations_2.c \
+	operations_3.c \
+	solver_utils_ab.c \
+	solver_utils_ba.c \
+	ft_exit_error.c \
+	algorithm.c
 
-INCLUDE = -L ./libft -libft
+PUSH_SWAP_MAIN = push_swap.c
+CHECKER_MAIN   = checker.c
+CHECKER_UTILS  = checker_utils.c
 
-.c.o:
-	${CC} -c $< -o ${<:.c=.o}
+# Arquivos completos de cada binário
+PUSH_SWAP_SRC  = $(addprefix $(SRC_DIR)/, $(COMMON_FILES) $(PUSH_SWAP_MAIN))
+CHECKER_SRC    = $(addprefix $(SRC_DIR)/, $(COMMON_FILES)) \
+				  $(BONUS_DIR)/$(CHECKER_MAIN) \
+				  $(BONUS_DIR)/$(CHECKER_UTILS)
 
-${NAME}: ${OBJ_1} ${OBJ_2}
-	make -C ${LIBFTDIR}
-	${CC} ${FLAGS} ${OBJ_1} ${OBJ_2} -o ${NAME} ${INCLUDE}
+# Objetos
+PUSH_SWAP_OBJ  = $(PUSH_SWAP_SRC:.c=.o)
+CHECKER_OBJ    = $(CHECKER_SRC:.c=.o)
 
-${BONUS}: ${OBJ_2} ${BONUS_OBJ}
-	make -C ${LIBFTDIR}
-	${CC} ${FLAGS} ${BONUS_OBJ} ${OBJ_2} -o ${BONUS} ${INCLUDE}
+# **************************************************************************** #
+#                                   RULES                                      #
+# **************************************************************************** #
 
-all: ${NAME}
+all: $(NAME)
 
-bonus: ${BONUS}
+$(LIBFT):
+	@$(MAKE) -C $(LIBFTDIR)
+# relinkando na linha 72
+$(NAME): $(PUSH_SWAP_OBJ) $(LIBFT)
+	$(CC) $(CFLAGS) $(PUSH_SWAP_OBJ) -L $(LIBFTDIR) -lft -o $(NAME)
+	@echo "✅ Compilado: $(NAME)"
+
+$(BONUS): $(CHECKER_OBJ) $(LIBFT)
+	$(CC) $(CFLAGS) $(CHECKER_OBJ) -L $(LIBFTDIR) -lft -o $(BONUS)
+	@echo "✅ Compilado: $(BONUS)"
+
+bonus: $(BONUS)
+
+# **************************************************************************** #
+#                                   CLEANUP                                    #
+# **************************************************************************** #
 
 clean:
-	${RM} ${OBJ_1} ${OBJ_2} ${BONUS_OBJ} ${NAME} ${BONUS}
-	@cd ${LIBFTDIR} && ${MAKE} clean
+	@$(RM) $(PUSH_SWAP_OBJ) $(CHECKER_OBJ)
+	@$(MAKE) -C $(LIBFTDIR) clean
+	@echo "🧹 Objetos removidos"
 
 fclean: clean
-	${RM} ${NAME}
-	@cd ${LIBFTDIR} && ${MAKE} fclean
+	@$(RM) $(NAME) $(BONUS)
+	@$(MAKE) -C $(LIBFTDIR) fclean
+	@echo "🧨 Binários removidos"
 
 re: fclean all
+
+# **************************************************************************** #
+#                                   UTILS                                      #
+# **************************************************************************** #
+
+# Compila arquivos .c individualmente
+%.o: %.c
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 .PHONY: all clean fclean re bonus
