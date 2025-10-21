@@ -6,14 +6,20 @@
 /*   By: lmelo-do <lmelo-do@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 09:55:51 by lmelo-do          #+#    #+#             */
-/*   Updated: 2025/10/21 09:55:52 by lmelo-do         ###   ########.fr       */
+/*   Updated: 2025/10/21 15:59:08 by lmelo-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-/*  Essa função faz a rotação da pilha "a" e da pilha "b".
-	na mesma diração e na quantidade necessária. */
+/*
+** EXECUTOR DE MOVIMENTOS DUPLOS - Rotação simultânea para cima
+**
+** Quando: Movendo um número específico entre as pilhas
+** Faz: Roda AMBAS as pilhas para cima ao mesmo tempo quando possível
+**      depois roda cada pilha separadamente até posicionar o número
+** Finaliza: Empurrando o número para a outra pilha
+*/
 int	ft_apply_rarb(t_stack **a, t_stack **b, int c, char s)
 {
 	if (s == 'a')
@@ -39,8 +45,14 @@ int	ft_apply_rarb(t_stack **a, t_stack **b, int c, char s)
 	return (-1);
 }
 
-/*  Essa função faz a rotação reversa da pilha "a" e da pilha "b".
-	na mesma diração e na quantidade necessária. */
+/*
+** EXECUTOR DE MOVIMENTOS DUPLOS - Rotação simultânea para baixo
+**
+** Quando: Movendo um número específico entre as pilhas
+** Faz: Roda AMBAS as pilhas para baixo ao mesmo tempo quando possível
+**      depois roda cada pilha separadamente até posicionar o número
+** Finaliza: Empurrando o número para a outra pilha
+*/
 int	ft_apply_rrarrb(t_stack **a, t_stack **b, int c, char s)
 {
 	if (s == 'a')
@@ -66,8 +78,13 @@ int	ft_apply_rrarrb(t_stack **a, t_stack **b, int c, char s)
 	return (-1);
 }
 
-/*  Essa função faz a rotação inversa da pilha "a".
-	com a pilha "b" direção contraria e na quantidade necessária. */
+/*
+** EXECUTOR DE MOVIMENTOS MISTOS - Rotação para baixo em A e para cima em B
+**
+** Quando: Movendo um número específico entre as pilhas
+** Faz: Roda a pilha A para baixo e a pilha B para cima separadamente
+** Finaliza: Empurrando o número para a outra pilha
+*/
 int	ft_apply_rrarb(t_stack **a, t_stack **b, int c, char s)
 {
 	if (s == 'a')
@@ -89,8 +106,13 @@ int	ft_apply_rrarb(t_stack **a, t_stack **b, int c, char s)
 	return (-1);
 }
 
-/*  Essa função faz a rotação inversa da pilha "b".
-	com a pilha "a" direção contraria e na quantidade necessária. */
+/*
+** EXECUTOR DE MOVIMENTOS MISTOS - Rotação para cima em A e para baixo em B
+**
+** Quando: Movendo um número específico entre as pilhas
+** Faz: Roda a pilha A para cima e a pilha B para baixo separadamente
+** Finaliza: Empurrando o número para a outra pilha
+*/
 int	ft_apply_rarrb(t_stack **a, t_stack **b, int c, char s)
 {
 	if (s == 'a')

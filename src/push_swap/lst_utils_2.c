@@ -6,14 +6,19 @@
 /*   By: lmelo-do <lmelo-do@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 10:00:53 by lmelo-do          #+#    #+#             */
-/*   Updated: 2025/10/21 11:53:25 by lmelo-do         ###   ########.fr       */
+/*   Updated: 2025/10/21 16:02:47 by lmelo-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-/* Confere o índice de um número na pilha.
-   Retorna -1 se o número não existir na pilha. */
+/*
+** LOCALIZADOR DE POSIÇÃO - Encontra a posição de um número na pilha
+**
+** Recebe: Pilha e número a ser encontrado
+** Faz: Percorre a pilha contando a posição até encontrar o número
+** Retorna: A posição (índice) do número, ou -1 se não encontrado
+*/
 int	ft_find_index(t_stack *a, int nbr)
 {
 	int		i;
@@ -28,7 +33,14 @@ int	ft_find_index(t_stack *a, int nbr)
 	return (i);
 }
 
-/* Retorna a posição correta de nbr_push na pilha B */
+/*
+** CALCULADOR DE POSIÇÃO NA PILHA B - Onde colocar um número em B
+**
+** Recebe: Pilha B e número a ser inserido
+** Faz: Calcula a posição ideal para manter B ordenada de forma decrescente
+** Retorna: A posição onde o número deve ser inserido
+** Lógica: B deve estar ordenada em ordem decrescente para eficiência
+*/
 int	ft_find_place_b(t_stack *stack_b, int nbr_push)
 {
 	int				i;
@@ -52,7 +64,14 @@ int	ft_find_place_b(t_stack *stack_b, int nbr_push)
 	return (i);
 }
 
-/* Retorna a posição correta de nbr_push na pilha A */
+/*
+** CALCULADOR DE POSIÇÃO NA PILHA A - Onde colocar um número em A
+**
+** Recebe: Pilha A e número a ser inserido
+** Faz: Calcula a posição ideal para manter A ordenada de forma crescente
+** Retorna: A posição onde o número deve ser inserido
+** Lógica: A deve estar ordenada em ordem crescente (objetivo final)
+*/
 int	ft_find_place_a(t_stack *stack_a, int nbr_push)
 {
 	int				i;

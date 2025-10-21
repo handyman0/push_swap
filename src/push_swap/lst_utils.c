@@ -6,15 +6,18 @@
 /*   By: lmelo-do <lmelo-do@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 09:56:18 by lmelo-do          #+#    #+#             */
-/*   Updated: 2025/10/21 09:56:19 by lmelo-do         ###   ########.fr       */
+/*   Updated: 2025/10/21 15:44:33 by lmelo-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-/**
- * Retorna o último elemento de uma pilha encadeada.
- */
+/*
+** ENCONTRA O FINAL - Procura o último elemento da pilha
+** Como: Encontrar a última pessoa de uma fila
+** Recebe: Primeiro elemento da pilha
+** Retorna: O último elemento (ou NULL se vazia)
+*/
 t_stack	*ft_lstlast(t_stack *lst)
 {
 	if (!lst)
@@ -24,9 +27,11 @@ t_stack	*ft_lstlast(t_stack *lst)
 	return (lst);
 }
 
-/**
- * Retorna o tamanho (número de elementos) da pilha.
- */
+/*
+** CONTADOR - Calcula quantos elementos tem na pilha
+** Recebe: Primeiro elemento da pilha
+** Retorna: Número total de elementos
+*/
 int	ft_lstsize(t_stack *lst)
 {
 	int	i;
@@ -40,9 +45,12 @@ int	ft_lstsize(t_stack *lst)
 	return (i);
 }
 
-/**
- * Retorna o menor valor presente na pilha.
- */
+/*
+** DETECTOR DE MÍNIMO - Encontra o menor número da pilha
+** Como: Procurar a pessoa mais baixa de um grupo
+** Recebe: Pilha de números
+** Retorna: O menor valor encontrado
+*/
 int	ft_min(t_stack *a)
 {
 	int		i;
@@ -57,9 +65,12 @@ int	ft_min(t_stack *a)
 	return (i);
 }
 
-/**
- * Retorna o maior valor presente na pilha.
- */
+/*
+** DETECTOR DE MÁXIMO - Encontra o maior número da pilha
+** Como: Procurar a pessoa mais alta de um grupo
+** Recebe: Pilha de números
+** Retorna: O maior valor encontrado
+*/
 int	ft_max(t_stack *a)
 {
 	int		i;

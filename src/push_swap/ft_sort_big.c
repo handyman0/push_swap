@@ -6,14 +6,20 @@
 /*   By: lmelo-do <lmelo-do@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 10:03:21 by lmelo-do          #+#    #+#             */
-/*   Updated: 2025/10/21 10:06:46 by lmelo-do         ###   ########.fr       */
+/*   Updated: 2025/10/21 16:01:17 by lmelo-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-/*	Essa função classifica e empurra pilhas até que
-	restem 3 elementos na pilha A */
+/*
+** FASE 1 - PREPARAÇÃO: Move elementos de A para B até sobrar 3 em A
+**
+** Como: Um jogador organizando cartas na mão
+** Faz: Calcula o movimento mais eficiente para cada número
+**      e o move para a pilha B na posição correta
+** Para quando: Sobram apenas 3 elementos na pilha A
+*/
 static void	ft_sort_b_till_3(t_stack **stack_a, t_stack **stack_b)
 {
 	int		i;
@@ -39,11 +45,13 @@ static void	ft_sort_b_till_3(t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
-/*	Essa função empurra, um por um, todos os elementos da pilha_a
-	para a pilha_b, até que restem até apenas tres elementos na pilha_a.
-	Ao empurrar, ela garante que a pilha_b esteja ordenada.
-	Quando restam três elementos, ela chama a função ft_sort_three
-	para ordenar os elementos restantes na pilha_a.
+/*
+** FASE 1 - INICIALIZAÇÃO: Prepara as pilhas para ordenação
+**
+** Faz: Move os dois primeiros elementos para B (se necessário)
+**      depois chama a função para mover o resto até sobrar 3
+**      ordena os 3 elementos restantes em A
+** Retorna: A pilha B com todos os elementos (exceto os 3 em A)
 */
 static t_stack	*ft_sort_b(t_stack **stack_a)
 {
@@ -61,6 +69,14 @@ static t_stack	*ft_sort_b(t_stack **stack_a)
 	return (stack_b);
 }
 
+/*
+** FASE 2 - RECOLOCAÇÃO: Move todos os elementos de volta de B para A
+**
+** Como: Colocar as cartas de volta na ordem correta
+** Faz: Para cada elemento em B, encontra a posição ideal em A
+**      e usa o movimento mais eficiente para colocá-lo lá
+** Retorna: A pilha A agora com todos os elementos ordenados
+*/
 static t_stack	**ft_sort_a(t_stack **stack_a, t_stack **stack_b)
 {
 	int		i;
@@ -87,12 +103,15 @@ static t_stack	**ft_sort_a(t_stack **stack_a, t_stack **stack_b)
 	return (stack_a);
 }
 
-/*	Essa função ordena a pilha A, se existir mais que 2 elementos na pilha A.
-	E finalmente, realiza a ordenação final na pilha A após todos os elementos
-	serem enviados para a pilha B, ordenados e enviados de volta para a pilha A.
-	Porque, mesmo que a pilha A seja ordenada no final, o numero minimo deve
-	estar no topo da pilha A.
-	Portanto, ela simplesmente traz o menor numero da pilha A para o topo */
+/*
+** ALGORITMO PRINCIPAL - Ordenação para mais de 3 números
+**
+** Se tiver 2 números: Apenas troca se necessário
+** Se tiver mais: Divide em duas fases:
+**		1. Move quase tudo para B (deixa 3 em A e ordena esses 3)
+**		2. Move tudo de volta para A na posição correta
+**		3. Ajusta a pilha A para que o menor número fique no topo
+*/
 void	ft_sort(t_stack **stack_a)
 {
 	t_stack	*stack_b;

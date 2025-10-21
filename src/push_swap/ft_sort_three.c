@@ -6,13 +6,21 @@
 /*   By: lmelo-do <lmelo-do@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 10:00:14 by lmelo-do          #+#    #+#             */
-/*   Updated: 2025/10/21 10:00:15 by lmelo-do         ###   ########.fr       */
+/*   Updated: 2025/10/21 15:42:33 by lmelo-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-/* função que ordena se foram passados 3 elementos na pilha */
+/*
+** ESPECIALISTA EM 3 NÚMEROS - Resolve o caso mais simples
+**
+** Recebe: Pilha A com exatamente 3 números
+** Faz: Analisa as posições e aplica a sequência mínima de movimentos
+** Caso 1: Menor número no topo → Rotaciona pra baixo + Troca
+** Caso 2: Maior número no topo → Rotaciona pra cima + (Troca se necessário)
+** Caso 3: Número do meio no topo → Decide baseado na posição do maior
+*/
 void	ft_sort_three(t_stack **stack_a)
 {
 	if (ft_min(*stack_a) == (*stack_a)->nbr)

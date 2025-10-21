@@ -6,16 +6,20 @@
 /*   By: lmelo-do <lmelo-do@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 09:56:39 by lmelo-do          #+#    #+#             */
-/*   Updated: 2025/10/21 09:56:40 by lmelo-do         ###   ########.fr       */
+/*   Updated: 2025/10/21 15:42:05 by lmelo-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-/* Essa função calcula e decide a melhor combinação de rotações
-   é a melhor para usar e ordenar a pilha. é claro que, após a rotação
-   sempre resta uma operação de push que eu implementei no código.
-   essa função sera utilizada durante do push de B para A */
+/*
+** CALCULADOR DE MOVIMENTOS - O planejador estratégico
+**
+** Quando: Movendo numeros de volta da pilha B para A
+** Faz: testa TODOS os números da pilha B para encontrar qual
+** requer menos movimentos, para ser colocado no lugar certo na pilha A
+** Retorna: O menor número de movimentos encontrado
+*/
 int	ft_rotate_type_ba(t_stack *a, t_stack *b)
 {
 	int		i;
@@ -37,11 +41,14 @@ int	ft_rotate_type_ba(t_stack *a, t_stack *b)
 	}
 	return (i);
 }
-
-/* Essa função calcula e decide a melhor combinação de rotações
-   é a melhor para usar e ordenar a pilha. é claro que, após a rotação
-   sempre resta uma operação de push que eu implementei no código.
-   essa função sera utilizada durante do push de A para B. */
+/*
+** CALCULADOR DE MOVIMENTOS - O planejador estratégico
+**
+** Quando: Movendo números da pilha A para B
+** Faz: Testa TODOS os números da pilha A para encontrar qual requer menos movimentos
+**      para ser colocado no lugar certo na pilha B
+** Retorna: O menor número de movimentos encontrado
+*/
 int	ft_rotate_type_ab(t_stack *a, t_stack *b)
 {
 	int		i;

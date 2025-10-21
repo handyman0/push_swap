@@ -6,13 +6,19 @@
 /*   By: lmelo-do <lmelo-do@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 09:59:49 by lmelo-do          #+#    #+#             */
-/*   Updated: 2025/10/21 09:59:50 by lmelo-do         ###   ########.fr       */
+/*   Updated: 2025/10/21 14:32:52 by lmelo-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-/* essa função verifica se tem numeros duplicados */
+/*
+** Detector de números duplicados - O fiscal de repetições
+** Recebe: uma pilha de números
+** Faz: Compara cada número com todos os outros da pilha
+** Retorna: Se encontrar duplicatas, 0 se todos forem únicos
+** Importante: Garante que não há números repetidos no jogo
+*/
 int	ft_checkdup(t_stack *a)
 {
 	t_stack	*tmp;

@@ -6,12 +6,18 @@
 /*   By: lmelo-do <lmelo-do@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 10:01:38 by lmelo-do          #+#    #+#             */
-/*   Updated: 2025/10/21 11:51:07 by lmelo-do         ###   ########.fr       */
+/*   Updated: 2025/10/21 14:10:00 by lmelo-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
+/*
+** Verificador de números - O porteiro da festa
+** Recebe: uma string qualquer
+** Faz: Verifica se é um numero valido (com ou sem sinal)
+** Exemplo: "123" OK, "-456" OK, "12a3" KO, "" KO
+*/
 static int	ft_isnumber(const char *str)
 {
 	int	i;
@@ -29,7 +35,13 @@ static int	ft_isnumber(const char *str)
 	}
 	return (1);
 }
-
+/*
+** Conversor seguro de string para número
+** Recebe: string número
+** Faz: Converte para inteiro verificando limites e caracteres
+** Importante: Rejeita números fora do range -2147483648 a 2147483647
+** Diferença do atoi normal: GERA ERRO se algo estiver errado
+*/
 static int	ft_atoi2(const char *str)
 {
 	int				mod;
@@ -59,8 +71,10 @@ static int	ft_atoi2(const char *str)
 }
 
 /*
-** Processa os argumentos entre aspas
-** Cria stack a partir de string com numeros separados por espaços
+** Processa os argumentos entre aspas - O desembaçador
+** Recebe: argumentos do programa (onde argv[1] é a string com numero)
+** Faz: separa os números por espaço e cria a pilha A
+** Exemplo: "./push_swap '4 67 3 87 23'" → pilha com 5 números
 */
 static t_stack	*ft_sub_process(char **argv)
 {
@@ -90,13 +104,15 @@ static t_stack	*ft_sub_process(char **argv)
 }
 
 /*
-Essa função faz tres coisas:
-	1 - Checa se o numero de argumentos é menor que 2
-	2 - Checa se o numero de argumentos é igual a 2
-		se for, isso signfica que é uma string.
-		e chama outra função de sub_process
-	3 - Se for maior que 2
-		ela lista os argumentos
+** Gerenciador Principal de Argumentos
+**
+** Funciona como um diretor de trafego que decide:
+** 	1. Se recebeu apenas 1 argumento -> string entre aspas
+**		Exemplo: "./push_swap '4 67 3'"
+** 	2. Se recebeu apenas 1 argumento -> lista normal
+** 		Exemplo: "./push_swap 4 67 3"
+**
+** Importante: Sempre verifica cada número antes de adicionar à pilha.
 */
 t_stack	*ft_process(int argc, char **argv)
 {
