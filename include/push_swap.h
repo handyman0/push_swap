@@ -6,7 +6,7 @@
 /*   By: lmelo-do <lmelo-do@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 10:45:24 by lmelo-do          #+#    #+#             */
-/*   Updated: 2025/10/21 10:45:25 by lmelo-do         ###   ########.fr       */
+/*   Updated: 2025/10/21 12:03:39 by lmelo-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,8 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }	t_stack;
 
-void		list_args(char **argv, t_stack **stack_a);
 void		ft_add_back(t_stack **stack, t_stack *stack_new);
 t_stack		*ft_stack_new(int content);
-int			check_error(char **argv, int i, int j);
 int			ft_checkdup(t_stack *a);
 int			ft_isalpha(int c);
 void		ft_error(void);
@@ -56,7 +54,6 @@ int			ft_find_place_a(t_stack *a, int nbr);
 void		ft_sort(t_stack **stack_a);
 int			ft_checksorted(t_stack *stack_a);
 void		ft_sort_three(t_stack **stack_a);
-t_stack		*ft_parse_args_quoted(char **argv);
 void		ft_free_str_array(char **array);
 int			ft_case_rarb_a(t_stack *a, t_stack *b, int c);
 int			ft_case_rrarrb_a(t_stack *a, t_stack *b, int c);

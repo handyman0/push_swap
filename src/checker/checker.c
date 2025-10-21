@@ -6,7 +6,7 @@
 /*   By: lmelo-do <lmelo-do@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 10:08:19 by lmelo-do          #+#    #+#             */
-/*   Updated: 2025/10/21 10:50:27 by lmelo-do         ###   ########.fr       */
+/*   Updated: 2025/10/21 11:32:05 by lmelo-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	ft_check_sub(t_stack **a, t_stack **b, const char *line)
 
 // Essa função lê as linhas e verifica se o comando é válido.
 // Se for válido, executa o comando na pilha correspondente.
-static char	*ft_check(t_stack **a, t_stack **b, char *line)
+static char	*ft_check(t_stack **a, t_stack **b, const char *line)
 {
 	if (line[0] == 's' && line[1] == 'a' && line[2] == '\n')
 		ft_sa(a, 1);

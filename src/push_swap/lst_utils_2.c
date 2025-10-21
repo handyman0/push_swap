@@ -6,7 +6,7 @@
 /*   By: lmelo-do <lmelo-do@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 10:00:53 by lmelo-do          #+#    #+#             */
-/*   Updated: 2025/10/21 10:02:40 by lmelo-do         ###   ########.fr       */
+/*   Updated: 2025/10/21 11:53:25 by lmelo-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ int	ft_find_place_b(t_stack *stack_b, int nbr_push)
 /* Retorna a posição correta de nbr_push na pilha A */
 int	ft_find_place_a(t_stack *stack_a, int nbr_push)
 {
-	int		i;
-	t_stack	*tmp;
+	int				i;
+	const t_stack	*tmp;
 
 	i = 1;
 	if (nbr_push < stack_a->nbr && nbr_push > ft_lstlast(stack_a)->nbr)

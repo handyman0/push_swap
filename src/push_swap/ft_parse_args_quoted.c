@@ -6,7 +6,7 @@
 /*   By: lmelo-do <lmelo-do@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 09:58:29 by lmelo-do          #+#    #+#             */
-/*   Updated: 2025/10/21 09:59:05 by lmelo-do         ###   ########.fr       */
+/*   Updated: 2025/10/21 11:29:52 by lmelo-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,4 @@ void	ft_free_str_array(char **array)
 		i++;
 	}
 	free(array);
-}
-
-/*
-	função para separar os argumentos passados entre aspas
-	e envialos para a função list_args para adicionar na lista
-	com ft_split, separamos numeros de espaços.
-*/
-t_stack	*ft_parse_args_quoted(char **argv)
-{
-	t_stack	*stack_a;
-	char	**tmp;
-
-	stack_a = NULL;
-	tmp = ft_split(argv[1], 32);
-	list_args(tmp, &stack_a);
-	ft_free_str_array(tmp);
-	return (stack_a);
 }

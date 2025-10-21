@@ -18,8 +18,8 @@ SRC_DIR     = src/push_swap
 BONUS_DIR   = src/checker
 
 COMMON_FILES = \
-	ft_add_back.c ft_check_dup.c ft_check_sorted.c ft_check_utils.c ft_error.c \
-	ft_free.c ft_list_args.c ft_parse_args_quoted.c ft_rotate_and_push.c \
+	ft_add_back.c ft_check_dup.c ft_check_sorted.c ft_error.c \
+	ft_free.c ft_parse_args_quoted.c ft_rotate_and_push.c \
 	ft_rotate_type.c ft_sort_big.c ft_sort_three.c ft_stack_new.c lst_utils.c \
 	lst_utils_2.c operations.c operations_2.c operations_3.c \
 	solver_utils_ab.c solver_utils_ba.c ft_exit_error.c algorithm.c

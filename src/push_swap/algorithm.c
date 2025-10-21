@@ -6,7 +6,7 @@
 /*   By: lmelo-do <lmelo-do@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 10:01:38 by lmelo-do          #+#    #+#             */
-/*   Updated: 2025/10/21 11:26:55 by lmelo-do         ###   ########.fr       */
+/*   Updated: 2025/10/21 11:51:07 by lmelo-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,8 @@ static int	ft_atoi2(const char *str)
 }
 
 /*
-	1 - essa funcão classifica as pilhas
-	2 - ela pega os numeros que esta entre aspas
-		por ordem ele coloca um identificador em cada numero
-	3 - separa cada um identificando como um inteiro
+** Processa os argumentos entre aspas
+** Cria stack a partir de string com numeros separados por espaços
 */
 static t_stack	*ft_sub_process(char **argv)
 {
@@ -76,15 +74,18 @@ static t_stack	*ft_sub_process(char **argv)
 	if (!tmp)
 		ft_exit_error(&a, NULL, NULL);
 	i = 0;
-	while (tmp[i])
+	if (tmp)
 	{
-		if (!ft_isnumber(tmp[i]))
-			ft_exit_error(&a, NULL, NULL);
-		j = ft_atoi2(tmp[i]);
-		ft_add_back(&a, ft_stack_new(j));
-		i++;
+		while (tmp[i] != NULL)
+		{
+			if (!ft_isnumber(tmp[i]))
+				ft_exit_error(&a, NULL, tmp);
+			j = ft_atoi2(tmp[i]);
+			ft_add_back(&a, ft_stack_new(j));
+			i++;
+		}
+		ft_free_str_array(tmp);
 	}
-	ft_free_str_array(tmp);
 	return (a);
 }
 
