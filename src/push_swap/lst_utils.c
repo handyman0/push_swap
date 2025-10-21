@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   lst_utils.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lmelo-do <lmelo-do@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/21 09:56:18 by lmelo-do          #+#    #+#             */
+/*   Updated: 2025/10/21 09:56:19 by lmelo-do         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../include/push_swap.h"
 
 /**
@@ -15,7 +27,7 @@ t_stack	*ft_lstlast(t_stack *lst)
 /**
  * Retorna o tamanho (número de elementos) da pilha.
  */
-int		ft_lstsize(t_stack *lst)
+int	ft_lstsize(t_stack *lst)
 {
 	int	i;
 

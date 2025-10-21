@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   operations_3.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lmelo-do <lmelo-do@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/21 09:54:51 by lmelo-do          #+#    #+#             */
+/*   Updated: 2025/10/21 09:55:13 by lmelo-do         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../include/push_swap.h"
 
 /*  rb (rotate b) - sobe cada elemento da pilha "b" para cima.
 	o primeiro vira o ultimo */
-void    ft_rb(t_stack **b, int j)
+void	ft_rb(t_stack **b, int j)
 {
 	t_stack	*tmp;
 

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   operations.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lmelo-do <lmelo-do@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/21 10:07:05 by lmelo-do          #+#    #+#             */
+/*   Updated: 2025/10/21 10:08:05 by lmelo-do         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../include/push_swap.h"
 
 /*  ra (rotate a) sobe 1 vez todos elementos da pilha
@@ -16,6 +28,7 @@ void	ft_ra(t_stack **a, int j)
 	if (j == 0)
 		write(1, "ra\n", 3);
 }
+
 /*  sa (swap a) troca a posição dos dois elementos de cima da pilha
 	não faz nada se for 1 ou nenhum elemento */
 void	ft_sa(t_stack **a, int j)
@@ -31,6 +44,7 @@ void	ft_sa(t_stack **a, int j)
 	if (j == 0)
 		write(1, "sa\n", 3);
 }
+
 /*  pa (push a) pega o primeiro elemento do topo da pilha b
 	e coloca no topo da pilha a, não faz nada se não tiver elemento na pilha b*/
 void	ft_pa(t_stack **a, t_stack **b, int j)
@@ -46,6 +60,7 @@ void	ft_pa(t_stack **a, t_stack **b, int j)
 	if (j == 0)
 		write(1, "pa\n", 3);
 }
+
 /*  rra (reverse rotate a) desce 1 vez todos elementos da pilha
 	o ultimo elemento torna-se o primeiro*/
 void	ft_rra(t_stack **a, int j)
@@ -72,6 +87,7 @@ void	ft_rra(t_stack **a, int j)
 	if (j == 0)
 		write(1, "rra\n", 4);
 }
+
 /*  ss - sa e sb ao mesmo tempo */
 void	ft_ss(t_stack **a, t_stack **b, int j)
 {

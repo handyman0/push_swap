@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_parse_args_quoted.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lmelo-do <lmelo-do@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/21 09:58:29 by lmelo-do          #+#    #+#             */
+/*   Updated: 2025/10/21 09:59:05 by lmelo-do         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../include/push_swap.h"
 
 /* função que livra a string entre os valores citados */
@@ -21,9 +33,9 @@ void	ft_free_str_array(char **array)
 	e envialos para a função list_args para adicionar na lista
 	com ft_split, separamos numeros de espaços.
 */
-t_stack *ft_parse_args_quoted(char **argv)
+t_stack	*ft_parse_args_quoted(char **argv)
 {
-	t_stack *stack_a;
+	t_stack	*stack_a;
 	char	**tmp;
 
 	stack_a = NULL;

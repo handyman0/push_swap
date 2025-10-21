@@ -1,5 +1,17 @@
-#include "../../include/push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lmelo-do <lmelo-do@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/21 10:08:19 by lmelo-do          #+#    #+#             */
+/*   Updated: 2025/10/21 10:50:27 by lmelo-do         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "../../include/push_swap.h"
+// Continuação da função ft_check para os casos de rra, rrb e rrr
 static void	ft_check_sub(t_stack **a, t_stack **b, const char *line)
 {
 	if (line[2] == 'a')

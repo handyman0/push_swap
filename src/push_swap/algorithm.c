@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   algorithm.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lmelo-do <lmelo-do@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/21 10:01:38 by lmelo-do          #+#    #+#             */
+/*   Updated: 2025/10/21 11:26:55 by lmelo-do         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../include/push_swap.h"
 
 static int	ft_isnumber(const char *str)
@@ -25,24 +37,21 @@ static int	ft_atoi2(const char *str)
 
 	i = 0;
 	mod = 1;
-	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\f'
-		|| *str == '\v' || *str == '\r')
+	while ((*str >= 9 && *str <= 13) || *str == 32)
 		str++;
-	if (*str == '-')
+	if (*str == '-' || *str == '+')
 	{
-		mod = -1;
+		if (*str == '-')
+			mod = -1;
 		str++;
 	}
-	else if (*str == '+')
-		str++;
 	if (!*str)
 		ft_error();
 	while (*str)
 	{
 		if (!ft_isdigit(*str))
 			ft_error();
-		i = i * 10 + (*str - 48);
-		str++;
+		i = i * 10 + (*str++ - 48);
 		if ((mod == 1 && i > 2147483647) || (mod == -1 && i > 2147483648))
 			ft_error();
 	}
@@ -55,7 +64,7 @@ static int	ft_atoi2(const char *str)
 		por ordem ele coloca um identificador em cada numero
 	3 - separa cada um identificando como um inteiro
 */
-static t_stack *ft_sub_process(char **argv)
+static t_stack	*ft_sub_process(char **argv)
 {
 	t_stack	*a;
 	char	**tmp;

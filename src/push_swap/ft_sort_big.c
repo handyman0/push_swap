@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_sort_big.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lmelo-do <lmelo-do@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/21 10:03:21 by lmelo-do          #+#    #+#             */
+/*   Updated: 2025/10/21 10:06:46 by lmelo-do         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../include/push_swap.h"
 
 /*	Essa função classifica e empurra pilhas até que
@@ -26,6 +38,7 @@ static void	ft_sort_b_till_3(t_stack **stack_a, t_stack **stack_b)
 		}
 	}
 }
+
 /*	Essa função empurra, um por um, todos os elementos da pilha_a
 	para a pilha_b, até que restem até apenas tres elementos na pilha_a.
 	Ao empurrar, ela garante que a pilha_b esteja ordenada.
@@ -73,11 +86,12 @@ static t_stack	**ft_sort_a(t_stack **stack_a, t_stack **stack_b)
 	}
 	return (stack_a);
 }
+
 /*	Essa função ordena a pilha A, se existir mais que 2 elementos na pilha A.
 	E finalmente, realiza a ordenação final na pilha A após todos os elementos
 	serem enviados para a pilha B, ordenados e enviados de volta para a pilha A.
-	Porque, mesmo que a pilha A seja ordenada no final, o numero minimo deve estar
-	no topo da pilha A.
+	Porque, mesmo que a pilha A seja ordenada no final, o numero minimo deve
+	estar no topo da pilha A.
 	Portanto, ela simplesmente traz o menor numero da pilha A para o topo */
 void	ft_sort(t_stack **stack_a)
 {
