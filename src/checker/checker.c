@@ -6,12 +6,17 @@
 /*   By: lmelo-do <lmelo-do@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 10:08:19 by lmelo-do          #+#    #+#             */
-/*   Updated: 2025/10/21 11:32:05 by lmelo-do         ###   ########.fr       */
+/*   Updated: 2025/10/21 13:45:11 by lmelo-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
-// Continuação da função ft_check para os casos de rra, rrb e rrr
+/*
+** Como um tradutor de comandos para as pilhas
+** Recebe: linha do comando, pilhas A e B
+** Faz: Identifica qual operação foi pedida e executa nas pilhas
+** Exemplo: Se ler "sa" -> esxecuta swap na pilha A
+*/
 static void	ft_check_sub(t_stack **a, t_stack **b, const char *line)
 {
 	if (line[2] == 'a')
@@ -22,8 +27,12 @@ static void	ft_check_sub(t_stack **a, t_stack **b, const char *line)
 		ft_rrr(a, b, 1);
 }
 
-// Essa função lê as linhas e verifica se o comando é válido.
-// Se for válido, executa o comando na pilha correspondente.
+/*
+** O cerebro do checker - decodifica cada comando
+** Recebe: linha de comando, pilhas A e B
+** Faz: Lê como "sa", "pb", "rrr" e chama a operação correta
+** Importante: O '1' no final significa "não imprimir o comando"
+*/
 static char	*ft_check(t_stack **a, t_stack **b, const char *line)
 {
 	if (line[0] == 's' && line[1] == 'a' && line[2] == '\n')
@@ -49,9 +58,15 @@ static char	*ft_check(t_stack **a, t_stack **b, const char *line)
 	return (get_next_line(0));
 }
 
-// Essa função checa a validade dos comandos e das pilhas.
-// Se for valido, e a pilha A estiver ordenada, o programa escreve "OK".
-// Se a pilha A não estiver ordenada, escreve "KO".
+/*
+** O motor principal do checker
+** Recebe: pilhas A e B, primeira linha de comando
+** Faz: Processa todos os comandos sequencialmente
+**		1. Executa cada comando nas pilhas.
+**		2. Verifica se a pilha A ficou ordenada.
+**		3. Verifica se a pilha B está vazia.
+** Resultado: "OK" se estiver correto, "KO" se houve erro.
+*/
 static void	ft_checker_sub(t_stack **a, t_stack **b, char *line)
 {
 	char	*tmp;
@@ -71,6 +86,23 @@ static void	ft_checker_sub(t_stack **a, t_stack **b, char *line)
 	free(line);
 }
 
+/*
+** PROGRAMA CHECKER
+**
+** Funcionamento:
+** 		1. Lê numeros e cria a pilha A inicial.
+** 		2. Aguarda comandos do usuario (do push_swap ou digitados).
+** 		3. Executa cada comando nas pilhas A e B.
+** 		4. Verifica o resultado final.
+**
+** Exemplo de uso:
+**		./push_swap 2 1 3 | ./checker 2 1 3
+**		↑ gera comandos		↑ verifica se funcionou
+**
+** Resultados:
+**		"OK" - Pilha A ordenada e Pilha B vazia
+**		"KO" - algo deu errado
+*/
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
